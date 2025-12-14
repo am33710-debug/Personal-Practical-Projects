@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Freetime</title>
+    <style>
+        body {
+            background-color: #524F81;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .titlecontainer {
+            display: flex;
+            align-items: center;
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            height: 60px; 
+            padding: 10px 20px; 
+        }
+
+        .titlecontainer img {
+            max-height: 110px;
+            margin-right: 100px; 
+        }
+
+        .titlecontainer h2 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .supercontainer { 
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .leftcontainer {
+            background: none;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1; 
+        }
+
+        .slideshow {
+            position: relative;
+            width: 1000px; 
+            height: 750px; 
+            overflow: hidden;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: none; 
+        }
+
+        .slideshow img.active {
+            display: block; 
+        }
+
+        .leftcontainer a {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0 3px 3px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2; 
+        }
+
+        .leftcontainer a:hover {
+            background-color: black;
+        }
+
+        .leftcontainer #prev {
+            left: 10px;
+        }
+
+        .leftcontainer #next {
+            right: 10px;
+        }
+
+        .rightcontainer {
+            background-color: #524F81;
+            color: whitesmoke;
+            flex: 1;
+            overflow-y: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px;
+        }
+
+        .heading { 
+            font-family: Times New Roman;
+            font-weight: bold;
+            font-size: 25px;
+            display: none; 
+        }
+
+        .heading.active {
+            display: block; 
+        }
+
+        .paragraph {
+            font-family: Times New Roman;
+            font-size: 15px;
+            display: none; 
+        }
+
+        .paragraph.active {
+            display: block; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titlecontainer">
+    	<img src="vitalislogo.png" alt="Vitalis Logo">
+        <h1>Our Freetime Activities</h1>
+    </div>
+
+    <div class="supercontainer">
+        <div class="leftcontainer">
+            <a href="#" id="prev"><b>&lt;</b></a> <!-- Previous Button -->
+            <div class="slideshow">
+                <img src="tablefootball.jpg" alt="Table Football" class="active">
+                <img src="pingpong.jpg" alt="Ping Pong">
+                <img src="pool.jpg" alt="Pool">
+                <img src="chess.jpg" alt="Chess">
+                <img src="jenga.jpg" alt="Jenga">
+            </div>
+            <a href="#" id="next"><b>&gt;</b></a> <!-- Next Button -->
+        </div>
+
+        <div class="rightcontainer">
+            <h1 class="heading active">Table Football</h1>
+            <p class="paragraph active">Table football is amazing to play and relax after a long day.</p>
+            <h1 class="heading">Ping Pong</h1>
+            <p class="paragraph">Ping Pong, otherwise known as Table Tennis is a fantastic option when you're bored.</p>
+            <h1 class="heading">Pool</h1>
+            <p class="paragraph">Nothing else to say here, it speaks for itself, just bring more friends.</p>
+            <h1 class="heading">Chess</h1>
+            <p class="paragraph">Chess is a fantastic game to develop logic, it is played on a 64 block field</p>
+            <h1 class="heading">Jenga</h1>
+            <p class="paragraph">Jenga is a game of patience where players remove blocks to prevent the tower from falling, a great test to one's stability, logic, and patience</p>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slideshow img');
+        const headings = document.querySelectorAll('.rightcontainer .heading');
+        const paragraphs = document.querySelectorAll('.rightcontainer .paragraph');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+
+        let currentSlide = 0;
+        const maxSlide = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            headings.forEach((heading, i) => {
+                if (i === index) {
+                    heading.classList.add('active');
+                } else {
+                    heading.classList.remove('active');
+                }
+            });
+
+            paragraphs.forEach((paragraph, i) => {
+                if (i === index) {
+                    paragraph.classList.add('active');
+                } else {
+                    paragraph.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= maxSlide) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = maxSlide - 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Tours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slideshowcontainer {
+            width: 100%;
+            height: 70vh; 
+            background-color: #333; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slideshowcontainer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slideshowcontainer img.active {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            color: white;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .textcontainer {
+            background-color: #f0f0f0; 
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .heading {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .paragraph {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideshowcontainer">
+        <img src="leipzig1.jpeg" alt="Leipzig">
+        <img src="leipzigzoo1.jpeg" alt="Leipzig Zoo">
+        <img src="leipzigzoo2.jpeg" alt="Leipzig Zoo">
+        <img src="leipzigzoo3.jpeg" alt="Leipzig Zoo">
+        <img src="leipzigtower1.jpg" alt="Leipzig Tower">
+        <img src="leipzigtower2.jpg" alt="Leipzig Tower">
+        <img src="berlin1.jpeg" alt="Berlin">
+        <img src="berlin2.jpeg" alt="Berlin">
+        <img src="berlin3.jpeg" alt="Berlin">
+        <img src="berlin4.jpeg" alt="Berlin">
+        <img src="berlin5.jpeg" alt="Berlin">
+        <img src="berlin6.jpeg" alt="Berlin">
+        <button class="prev" onclick="plusSlides(-1)"><b>&lt;</b></button>
+        <button class="next" onclick="plusSlides(1)"><b>&gt;</b></button>
+    </div>
+
+    <div class="textcontainer">
+        <div>
+            <h2 class="heading"></h2>
+            <p class="paragraph"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slideshowcontainer img');
+            const heading = document.querySelector('.heading');
+            const paragraph = document.querySelector('.paragraph');
+            
+            function showSlides() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[slideIndex].classList.add('active');
+            }
+
+            function plusSlides(n) {
+                slideIndex += n;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                } else if (slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                }
+                showSlides();
+                updateText();
+            }
+
+            function updateText() {
+                const currentSlide = slides[slideIndex];
+                heading.textContent = currentSlide.alt;
+
+                switch (currentSlide.alt) {
+                    case 'Leipzig':
+                        paragraph.textContent = "Leipzig is the 2nd biggest city in Germany.";
+                        break;
+                    case 'Leipzig Tower':
+                        paragraph.textContent = "The Leipzig Monument - Volkerschlachtdenkmal, offers a full view of the city.";
+                        break;
+                    case 'Berlin':
+                        paragraph.textContent = "Berlin is the capital of Germany, and offers a vast history not far ago, also some of the most important moments in history.";
+                        break;
+                    case 'Leipzig Zoo':
+                        paragraph.textContent = "The Leipzig Zoo spans over 27 hectares and contains approximately 850 species. By 2020, the zoo featured six different theme worlds, providing habitats for the species on display. The zoo is renowned for its large size and excellent climate for the species inside.";
+                        break;
+                    default:
+                        paragraph.textContent = "";
+                        break;
+                }
+            }
+
+            document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+            document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+
+            showSlides();
+            updateText();
+        });
+    </script>
+</body>
+</html>

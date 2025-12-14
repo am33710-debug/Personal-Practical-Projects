@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Naracki - Pizza Paradise</title>
+        <script> /* Executable Code - Najcesto vo JavaScript */
+            function naracka() /* Funkcija */
+            {
+                alert("Vi Blagodarime na Narackata, Kje vi Bide Dostavena za Kratko!") /* Dava Text - Kako Kazan od Site-ot */
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Naracajte:</h1>
+        <form onsubmit="naracka(); return false;"> <!-- Za da se Izvrsi Funkcijata-->
+            <label for="name">Ime:</label><br> <!-- <br> e za Prazna Linija -->
+            <input type="text" id="name" name="name" required><br><br> <!-- type e za Sto kje Se Vnesuva (text, brojki..), name="" e za Podatokot (koj bi se cuval vo server ili nekade) i required e kako sto kazuva imeto, mora -->
+            <label for="adress">Adresa na Ziveenje:</label><br>
+            <input type="text" id="adress" name="adress" required><br><br>
+            <input type="submit" value="Submit"> <!-- type e Koga kje se Stisne, da se Prati Podatokot, a Vtoroto e za Text da se Pojavi na Kopceto -->
+        </form>
+    </body>
+</html>
+<!-- Moze Upgrades! --> 

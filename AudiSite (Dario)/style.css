@@ -1,0 +1,305 @@
+:root{
+  --orange:black;
+}
+
+*{  /*import styles to all elements*/
+  font-family: 'Times New Roman', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+section{
+  padding:2rem 9%;
+}
+
+.heading{
+  text-align: center;
+  padding:2.5rem 0
+}
+
+.heading span{
+  font-size: 3.5rem;
+  background:rgba(216, 189, 12, 0.2);
+  padding:.2rem 1rem;
+}
+
+.heading span.space{
+  background:none;
+}
+
+.btn{
+  margin-top: 1rem;
+  background:var(--orange);
+  color:#fff;
+  padding:.8rem 3rem;
+  border:.2rem solid var(--orange);
+  font-size: 1.7rem;
+}
+
+header{
+  position: fixed;
+  top:0; left: 0; right:0;
+  background:rgb(0, 0, 0);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:2rem 9%;
+}
+
+header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color:#fff;
+  text-transform: uppercase;
+}
+
+header .navbar a{
+  color:#fff;
+  font-size: 2rem;
+  margin:0 .8rem;
+}
+
+#menu-bar{
+  color:#fff;
+  border:.1rem solid #fff;
+  border-radius: .5rem;
+  font-size: 3rem;
+  padding:.5rem 1.2rem;
+  display: none;
+}
+
+/* Home */
+
+.home{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.home .content{
+  text-align: center;
+}
+
+.home .content h3{
+  font-size: 4.5rem;
+  color:#fff;
+  text-transform: uppercase;
+}
+
+.home .content p{
+  font-size: 2.5rem;
+  color:#fff;
+  padding:.5rem 0;
+}
+
+.home .video-container video{
+  position: absolute;
+  top:0; left: 0;
+  z-index: -1;
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+}
+
+/* Order */
+
+.order .row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.order .row .image img{
+  width:100%;
+}
+
+.order .row form{
+  flex:1 1 40rem;
+  padding:2rem;
+}
+
+.order .row form .inputBox{
+  padding:.5rem 0;
+}
+
+.order .row form .inputBox input{
+  width:100%;
+  padding:1rem;
+  font-size: 1.7rem;
+}
+
+.order .row form .inputBox h3{
+  font-size: 2rem;
+  padding:1rem 0;
+  color:#666;
+}
+
+/* Cars */
+
+.cars .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:2rem;
+}
+
+.cars .box-container .box{
+  flex:1 1 30rem;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.cars .box-container .box img{
+  height: 25rem;
+  width:100%;
+  object-fit: cover;
+}
+
+.cars .box-container .box .content{
+  padding:2rem;
+}
+
+.cars .box-container .box .content h3{
+  font-size:2rem;
+  color:#333;
+}
+
+.cars .box-container .box .content p{
+  font-size:1.7rem;
+  color:#666;
+  padding:1rem 0;
+}
+.cars .box-container .box .content ol{
+font-size: 1.4rem;
+}
+
+.cars .box-container .box .content .price{
+  font-size: 1.7rem;
+  color:#333;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Review */
+
+.review .review-slider 
+{
+   padding-bottom: 2rem;
+}
+
+.review .box 
+{
+    padding: 1rem;
+    text-align: center;
+    background-color: black;
+}
+p{
+  color: #eee;
+}
+
+h3{
+  color: #eee;
+}
+
+
+.review .box img 
+{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 1rem;
+}
+
+/* Conctact */
+
+.contact .row .image 
+{
+    flex: 1 1 35rem;
+}
+
+.contact .row .image img 
+{
+    width: 15%;
+    margin-left: 43%;
+}
+
+.contact .row form,
+.footer .box-container .box 
+{
+    flex: 1 1 50rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.contact .row form .inputBox,
+.contact .row form textarea 
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact .row form .inputBox input,
+.contact .row form textarea 
+{
+     width: 49%;
+     margin: 1rem 0;
+     padding: 1rem;
+     font-size: 1.7rem;
+     color: #333;
+     background: #f7f7f7;
+     
+}
+
+.contact .row form textarea 
+{
+     height: 15rem;
+     resize: none;
+     width: 100%;
+}
+.footer{
+    background-color:black;
+}
+
+.footer .box-container .box h3,
+.footer .box-container .box p,
+.footer .box-container .box a 
+{
+    display: block;
+    font-size: 2rem;
+    padding: .5rem 0;
+    color: #eee;
+    
+}
+
+.footer .box-container .box a:hover 
+{
+    color: var(--orange);
+    text-decoration: underline;
+}
+
+.footer .credit 
+{
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    border-top: .1rem solid rgba(255, 255, 255, .2);
+}
+
+.footer .credit span 
+{
+    color: var(--orange);
+}

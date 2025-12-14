@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="website.css" rel="stylesheet">
+    <title>Erasmus+ Project - Vitalis Germany</title>
+    <style>
+        body, html {
+            background-image: url(background.jpeg);
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-family: Times New Roman;
+            font-weight: bold;
+            font-size: 30px;
+            color: black;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: whitesmoke;
+            margin: 70px;
+            padding: 8px;
+            height: 125px;
+        }
+
+        .button {
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            font-family: Times New Roman;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown:hover .content {
+            display: block;
+        }
+
+        .content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .maincontainer {
+            border: 10px solid black;
+            background-color: whitesmoke;
+            position: relative;
+            bottom: 15px;
+            margin: auto;
+            width: 70%;
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imagecontainer {
+            max-width: 100%; 
+            max-height: 100%; 
+            border: 5px solid black; 
+            overflow: hidden; 
+        }
+
+        .imagecontainer img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            margin: 0 auto; 
+        }
+
+        h1, p {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .textcontainer {
+            width: 100%;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="vitalislogo.png" alt="Vitalis Logo">
+        <a href="home.html">Home</a>
+        <a href="freetime.html">Free Time</a>
+        <div class="dropdown">
+            <button class="button">Practice</button>
+            <div class="content">
+                <a href="week1.html">Week 1</a>
+                <a href="week2.html">Week 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="button">Cities</button>
+            <div class="content">
+                <a href="cities.html">Berlin</a>
+                <a href="cities.html">Leipzig</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="maincontainer">
+        <div class="imagecontainer">
+            <img src="group.jpg" alt="Our Group Photo">
+        </div>
+    </div>
+</body>
+</html>

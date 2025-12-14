@@ -1,0 +1,236 @@
+<!DOCTYPE html> <!-- Document type declaration -->
+<html lang="en"> <!-- HTML language attribute -->
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive viewport -->
+    <title>Pizza Paradise</title> <!-- Title of the page -->
+    <link rel="icon" href="pizzas/icon.jfif" type="image/jfif"> <!-- Favicon for the website -->
+    <link rel="stylesheet" href="pzpp.css">
+    <style>
+        * /* Browser reset and default settings */
+        {
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+        }
+
+        body 
+        {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #121212;
+            color: #f1c40f; 
+        }
+
+        .header 
+        {
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Space between items */
+            align-items: center;
+            padding: 20px; 
+            background-color: #1c1c1c;
+        }
+
+        .navbar 
+        {
+            display: flex; /* Flex container */
+            flex: 1; /* Equal width for navigation links */
+            justify-content: center; /* Center align items */
+        }
+
+        .navbar a 
+        {
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #f1c40f; /* Same color as text about pizzas */
+            font-weight: bold; 
+        }
+
+        .logo 
+        {
+            text-align: center;
+            flex: 1; /* Equal width for logo */
+        }
+
+        .logo img 
+        {
+            height: 80px; 
+        }
+
+        /* Title Section */
+        .title 
+        {
+            text-align: center; /* Center align the content */
+            padding: 350px; /* Add padding for spacing */
+            position: relative; /* Set position relative for stacking */
+            z-index: 1; /* Set a higher z-index to ensure the title is on top of the video */
+        }
+
+        /* Video Styles */
+        .title video 
+        {
+            position: absolute; /* Position video absolutely */
+            top: 0; /* Align video to the top */
+            left: 0; /* Align video to the left */
+            width: 100%; /* Cover the entire width of the container */
+            height: 100%; /* Cover the entire height of the container */
+            object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+            z-index: -1; /* Set a lower z-index to place video behind the title */
+            opacity: 1; /* Ensure video is fully visible */
+        }
+
+        /* Title Text */
+        .title h1 
+        {
+            font-size: 7em; /* Set the font size */
+            color: red;
+        }
+
+        /* Slideshow Section */
+        .slideshow-container {
+            position: relative; /* Position relative for stacking */
+            max-width: 1200px; /* Maximum width */
+            margin: auto; /* Center align */
+            padding-top: 30px; /* Padding at the top */
+        }
+
+        .slide {
+            display: none; /* Hide slides by default */
+        }
+
+        .active {
+            display: flex; /* Show the active slide as flex */
+            justify-content: space-around; /* Space between images */
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .prev, .next {
+            cursor: pointer; /* Pointer cursor */
+            position: absolute; /* Position absolute */
+            top: 50%; /* Center vertically */
+            width: auto; /* Auto width */
+            padding: 15px; /* Padding */
+            color: white; /* White color */
+            font-weight: bold; /* Bold font */
+            transition: 0.6s ease; /* Transition effect */
+            border-radius: 0 3px 3px 0; /* Rounded corners */
+            user-select: none; /* Prevent text selection */
+        }
+
+        .next {
+            right: 0; /* Position to the right */
+            border-radius: 3px 0 0 3px; /* Rounded corners */
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8); /* Background color on hover */
+        }
+        .pizza {
+        background-color: #2c2c2c; /* Background color */
+        border: 1px solid black; /* Border */
+        padding: 25px; /* Padding */
+        width: calc(50% - 20px); /* Set width for two images per slide */
+        text-align: center; /* Center align text */
+        transition: transform 0.3s; /* Smooth transition */
+        cursor: pointer; /* Cursor style */
+        margin: 0 10px; /* Adjusted margin */
+        }
+
+        .slide.active {
+        display: flex; /* Ensure flex display */
+        justify-content: space-around; /* Space between images */
+        }
+
+        .slide.active .pizza {
+        width: calc(50% - 20px); /* Set width for two images per slide */
+        margin: 0; /* Reset margin */
+        }
+
+        .pizza img {
+            width: 100%; /* Full width */
+            height: auto; /* Auto height */
+            margin-bottom: 10px; /* Bottom margin */
+        }
+
+        .pizza h2, .pizza p {
+            margin: 10px 0; /* Adjusted margin for text */
+            color: #f1c40f; /* Text color */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="navbar">
+            <a href="about.html">About Us</a> <!-- Navigation link -->
+        </div>
+        <div class="logo">
+            <img src="pizzas/icon.jfif" alt="Pizza Paradise Logo"> <!-- Logo image -->
+        </div>
+        <div class="navbar">
+            <a href="developer.html">Developer</a> <!-- Navigation link -->
+        </div>
+    </div>
+
+    <!-- Title Section -->
+    <div class="title">
+        <!-- Background Video -->
+        <video src="pizzas/Pizza.mp4" autoplay muted loop></video> <!-- Video background -->
+        <h1>Pizza Paradise</h1> <!-- Title -->
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container"> <!-- Div Containing the Slideshow -->
+        <div class="slide active"> <!-- Active slide -->
+            <div class="pizza" onclick="window.location.href='order.html'"> <!-- Div for the First Pizza and Redirect to the Ordering Page (order.html) -->
+                <img src="pizzas/margarita.jfif" alt="Margarita"> <!-- Link to the Image of the Pizza -->
+                <h2>Margarita</h2> <!-- Name of the Pizza -->
+                <p>Sostojki: Mocarela, Patlidzan, Bosiljok</p> <!-- Ingredients -->
+                <p>Cena: €8</p> <!-- Price -->
+            </div>
+            <div class="pizza" onclick="window.location.href='order.html'">
+                <img src="pizzas/capriciossa.jfif" alt="Capriciossa">
+                <h2>Capriciossa</h2>
+                <p>Sostojki: Patlidzan, Mocarela, Sunka, Pecurki, Maslinki</p>
+                <p>Cena: €10</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="pizza" onclick="window.location.href='order.html'">
+                <img src="pizzas/tuna.jfif" alt="Tuna Pizza">
+                <h2>Tuna</h2>
+                <p>Sostojki: Patlidzan, Mocarela, Tuna, Kromid</p>
+                <p>Cena: €12</p>
+            </div>
+            <div class="pizza" onclick="window.location.href='order.html'">
+                <img src="pizzas/sausage.jfif" alt="Sausage Pizza">
+                <h2>Pizza so Kolbasi</h2>
+                <p>Sostojki: Patlidzan, Mocarela, Kolbasi</p>
+                <p>Cena: €9</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="pizza" onclick="window.location.href='order.html'">
+                <img src="pizzas/peperroni.jfif" alt="Peperroni">
+                <h2>Peperroni</h2>
+                <p>Sostojki: Patlidzan, Mocarela, Peperroni(kulen)</p>
+                <p>Cena: €11</p>
+            </div>
+            <div class="pizza" onclick="window.location.href='order.html'">
+                <img src="pizzas/pineapple.jfif" alt="Pineapple Pizza">
+                <h2>Pineapple Pizza</h2>
+                <p>Sostojki: Patlidzan, Mocarela, Ananas</p>
+                <p>Cena: €10</p>
+            </div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- Previous button -->
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> <!-- Next button -->
+    </div>
+
+    <script src="pzpp.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
